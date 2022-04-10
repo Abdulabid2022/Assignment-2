@@ -8,84 +8,10 @@
   </head>
   <body>
     <div>
-      <select id="optionSel">
-        <option value="1">UserId</option>
-        <option value="2">Id</option>
-        <option value="3">Title</option>
-        <option value="4">Body</option>
-      </select>
-      <input type="text" name="" id="inp" />
-      <button type="submit" id="search" onclick="searchData()">Search</button>
-    </div>
-
-    <div style="margin-top: 50px">
-      <h1>
-        UserId :
-        <span id="userId"></span>
-      </h1>
-
-      <h1>
-        ID :
-        <span id="id"></span>
-      </h1>
-
-      <h1>
-        Title :
-        <span id="title"></span>
-      </h1>
-
-      <h1>
-        Body :
-        <span id="body"></span>
-      </h1>
-    </div>
+      <select onchange="" name="" id="dropdown"></select>
+      <input type="text" name="" id="inp"/>
+     <button onclick="searchVal()">search</button>
   </body>
 
-  <script>
-    var data;
-    async function searchData() {
-      let inp = document.getElementById("inp").value;
-      let sel = document.getElementById("optionSel").value;
-
-      await fetch("https://jsonplaceholder.typicode.com/posts").then(
-        async (res) => {
-          await res.json().then(async (res) => {
-            data = res;
-          });
-        }
-      );
-
-      // for (var i = 0; i < data.length; i++) {
-      //   if (sel === 0) {
-      //     if (data[i].userId === inp) {
-      //       console.log(data[i].title);
-
-      //       document.getElementById("userId").innerHTML = data[i].userId;
-      //       document.getElementById("id").innerHTML = data[i].id;
-      //       document.getElementById("title").innerHTML = data[i].title;
-      //       document.getElementById("body").innerHTML = data[i].body;
-      //     } else {
-      //       console.log("Data Not Found!");
-      //     }
-      //   }
-      // }
-
-      function filterByID(item) {
-        if (item.title == "a") {
-          return true;
-        }
-
-        return false;
-      }
-
-      let arrByID = data.filter(filterByID);
-
-      console.log(arrByID);
-
-      document.getElementById("userId").innerHTML = arrByID[0].userId;
-      document.getElementById("id").innerHTML = arrByID[0].id;
-      document.getElementById("title").innerHTML = arrByID[0].title;
-      document.getElementById("body").innerHTML = arrByID[0].body;
-    }
-  </script>
+<script src="/app.js"></script>
 </html>
